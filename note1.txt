@@ -1,0 +1,7 @@
+<script src="js/scripts.js" defer></script>
+
+-> 'defer'
+To solve the problem of HTML loading before JavaScript
+This way the Script will wait for the DOM to load before executing
+This way the script can be imported into the 'head' without problems
+

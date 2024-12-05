@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz in JS!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+
+<body>
+    <h1 id="main-title">Programming Quiz!</h1>
+    <!-- SCORE BOARD -->
+    <div id="score-container" class="hide">
+        <h2>Congratulations!</h2>
+        <p id="display-score"><span>90</span>%</p>
+        <p>You answered <span id="correct-answers">0</span> out of <span id="questions-qty">10</span> questions
+            correctly.</p>
+        <button id="restart">Retake quiz!</button>
+    </div>
+    <!-- QUIZZ CONTAINER -->
+    <div id="quizz-container">
+        <p id="question"><span id="question-number">1</span> - <span id="question-text">What is the unit of measurement
+                for meters?</span></p>
+        <div id="answers-box">
+            <button class="correct-answer"><span class="btn-letter">a</span> <span
+                    class="question-answer">m</span></button>
+            <button class="wrong-answer"><span class="btn-letter">b</span> <span
+                    class="question-answer">km</span></button>
+            <button><span class="btn-letter">c</span> <span class="question-answer">ms</span></button>
+            <button><span class="btn-letter">d</span> <span class="question-answer">r</span></button>
+        </div>
+    </div>
+
+    <!-- TEMPLATE RESPOSTA -->
+    <button class="answer-template hide"><span class="btn-letter"></span> <span class="question-answer"></span></button>
+</body>
+
+</html>
