@@ -144,7 +144,6 @@ function checkAnswer(btn) {
                 points++; // Make the points increment
             }
 
-
         } else {
             button.classList.add("wrong-answer");
         }
@@ -187,7 +186,6 @@ function showSuccessMessage() {
     // Change the correct number of questions
     const totalNumberQuestions = document.querySelector("#questions-qty")
     totalNumberQuestions.textContent = questions.length;
-
 }
 
 // Show or hide the Score
@@ -196,6 +194,16 @@ function hideOrShowQuizz() {
     scoreContainer.classList.toggle("hide");
 }
 
+// Restart Quizz
+const restartBtn = document.querySelector("#restart");
+
+restartBtn.addEventListener("click", function () {
+    // Reset the game score
+    actualQuestion = 0;
+    points = 0;
+    hideOrShowQuizz();
+    init();
+});
 
 // Quiz Initialization
 init();
