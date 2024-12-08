@@ -77,8 +77,7 @@ const questions = [
 // Quiz replacement for first question
 // Automating the function of going to the first question and restarting the game
 function init() {
-    //Create the first question
-    createQuestion(0);
+    createQuestion(0); //Create the first question
 }
 
 // Create question
@@ -122,12 +121,50 @@ function createQuestion(i) {
 
         // Insert a button click event
         answerTemplate.addEventListener("click", function () {
-            console.log(this)
+            checkAnswer(this)
         });
     });
 
-    // Increment the question number
-    actualQuestion++;
+    actualQuestion++; // Increment the question number
+}
+
+// Checking user response
+function checkAnswer(btn) {
+
+    // All buttons present in the document
+    const buttons = answersBox.querySelectorAll("button");
+
+    // Check if the answer is correct and then add classes to the buttons
+    buttons.forEach(function (button) {
+        if (button.getAttribute("correct-answer") === "true") {
+            button.classList.add("correct-answer");
+
+            // Check if the user got the question right
+            if (btn === button) {
+                points++; // Make the points increment
+            }
+
+
+        } else {
+            button.classList.add("wrong-answer");
+        }
+    });
+
+    // Display the next question to the user
+    nextQuestion();
+}
+
+// Display the next question to the user
+function nextQuestion() {
+
+    // Time for user to see responses
+    setTimeout(function () {
+        // Check if there are still questions
+        if (actualQuestion >= questions.length) {
+            // Present the success message
+        }
+        createQuestion(actualQuestion);
+    }, 1500)
 }
 
 // Quiz Initialization
