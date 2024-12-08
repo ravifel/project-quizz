@@ -10,7 +10,7 @@ let actualQuestion = 0; // To find out which question the quizz is on
 // Questions
 const questions = [
     {
-        "question": "PHP foi desenvolvido para qual fim?",
+        "question": "What was PHP developed for?",
         "answers": [
             {
                 "answer": "back-end",
@@ -21,17 +21,17 @@ const questions = [
                 "correct": false
             },
             {
-                "answer": "Sistema operacional",
+                "answer": "Operating system",
                 "correct": false
             },
             {
-                "answer": "Banco de dados",
+                "answer": "Database",
                 "correct": false
             },
         ]
     },
     {
-        "question": "Uma forma de declarar variável em JavaScript:",
+        "question": "One way to declare a variable in JavaScript:",
         "answers": [
             {
                 "answer": "$var",
@@ -52,7 +52,7 @@ const questions = [
         ]
     },
     {
-        "question": "Qual o seletor de id no CSS?",
+        "question": "What is the id selector in CSS?",
         "answers": [
             {
                 "answer": "#",
