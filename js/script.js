@@ -75,3 +75,29 @@ const questions = [
 ]
 
 // Quiz replacement for first question
+// Automating the function of going to the first question and restarting the game
+function init() {
+    //Create the first question
+    createQuestion(0);
+}
+
+// Create question
+function createQuestion(i) {
+
+    // To clear alternatives of the last question
+    const oldButtons = answersBox.querySelectorAll("button");
+
+    oldButtons.forEach(function (btn) {
+        btn.remove();
+    })
+
+    // To change the text of the answer
+    const questionText = question.querySelector("#question-text");
+    const questionNumber = question.querySelector("#question-number");
+
+    questionText.textContent = questions[i].question; // Question Text
+    questionNumber.textContent = i + 1; // Question Number
+}
+
+// Quiz Initialization
+init();
