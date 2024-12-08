@@ -86,17 +86,48 @@ function createQuestion(i) {
 
     // To clear alternatives of the last question
     const oldButtons = answersBox.querySelectorAll("button");
-
     oldButtons.forEach(function (btn) {
         btn.remove();
     })
-
     // To change the text of the answer
     const questionText = question.querySelector("#question-text");
     const questionNumber = question.querySelector("#question-number");
 
     questionText.textContent = questions[i].question; // Question Text
     questionNumber.textContent = i + 1; // Question Number
+
+
+    // To insert alternatives
+    questions[i].answers.forEach(function (answer, i) {
+
+        // Create the Quiz Button Template
+        const answerTemplate = document.querySelector(".answer-template").cloneNode(true);
+
+        const letterBtn = answerTemplate.querySelector(".btn-letter");
+        const answerText = answerTemplate.querySelector(".question-answer");
+
+        letterBtn.textContent = letters[i];
+        answerText.textContent = answer['answer'];
+
+        // Validation of whether the alternative is correct or not
+        answerTemplate.setAttribute("correct-answer", answer["correct"]);
+
+        // Remove unused classes ('hide' and 'answer-template')
+        answerTemplate.classList.remove("hide");
+        answerTemplate.classList.remove("answer-template");
+
+        // Insert the alternative on the screen
+        // Whenever a new alternative is entered, it will be inserted one after the other.
+        answersBox.appendChild(answerTemplate);
+
+        // Insert a button click event
+        answerTemplate.addEventListener("click", function () {
+            console.log(this)
+        });
+    });
+
+    // Increment the question number
+    actualQuestion++;
 }
 
 // Quiz Initialization
