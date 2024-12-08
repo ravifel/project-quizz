@@ -162,10 +162,40 @@ function nextQuestion() {
         // Check if there are still questions
         if (actualQuestion >= questions.length) {
             // Present the success message
+            showSuccessMessage();
+            return;
         }
         createQuestion(actualQuestion);
     }, 1500)
 }
+
+// Function that displays the game's final screen
+function showSuccessMessage() {
+
+    hideOrShowQuizz();
+
+    // Change the data on the success screen to the correct data
+    // Calculate score
+    const score = ((points / questions.length) * 100).toFixed(2);
+    const displayScore = document.querySelector("#display-score span");
+    displayScore.textContent = score.toString();
+
+    // Change the correct number of questions answered correctly - points
+    const correctAnswers = document.querySelector("#correct-answers")
+    correctAnswers.textContent = points;
+
+    // Change the correct number of questions
+    const totalNumberQuestions = document.querySelector("#questions-qty")
+    totalNumberQuestions.textContent = questions.length;
+
+}
+
+// Show or hide the Score
+function hideOrShowQuizz() {
+    quizzContainer.classList.toggle("hide");
+    scoreContainer.classList.toggle("hide");
+}
+
 
 // Quiz Initialization
 init();
